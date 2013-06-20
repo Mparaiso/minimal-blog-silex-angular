@@ -1,0 +1,26 @@
+{
+    "require":{
+        "mustache/mustache":"*",
+        "silex/silex":"1.*",
+        "mparaiso/silex-simplerest":"*@dev",
+        "mparaiso/crudserviceprovider":"*@dev",
+        "mparaiso/consoleserviceprovider":"*@dev",
+        "symfony/config":"2.3.*",
+        "symfony/twig-bridge":"2.3.*",
+        "twig/twig":"*",
+        "doctrine/dbal":"*",
+        "monolog/monolog":"*",
+        "symfony/monolog-bridge":"2.3.*",
+        "symfony/doctrine-bridge":"2.3.*",
+        "symfony/serializer":"2.3.*"
+},
+    "require-dev":{
+        "mockery/mockery":"*",
+        "phpunit/phpunit":"*"
+    },
+    "autoload":{
+        "psr-0":{
+            "":"app"
+        }
+    }
+}

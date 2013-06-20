@@ -1,0 +1,26 @@
+<!-- angular template -->
+<div class="row" data-ng-controller="MainCtrl">
+    <div class="span3" style="position:absolute;">
+        <h3>Add a new post</h3>
+        <div data-ng-controller="PostFormCtrl">
+            <form name="post-form">
+                <label>Author</label>
+                <input data-ng-model="post.author_name" required type="text" name="author"/>
+                <label>Content</label>
+                <textarea data-ng-model="post.content" required row="5" maxlength="300" cols="10"></textarea>
+                <label></label>
+                <input type="submit" data-ng-click="submit(post)" class="btn" value="Submit"> <input class="btn" type="reset" value="Reset"/>
+            </form>
+        </div>
+    </div>
+    <div class="span9 offset3" data-ng-controller="PostListCtrl">
+        <ul class="unstyled">
+            <li data-ng-repeat="post in postService.getPosts()">
+                <h3>{{post.title}}
+                    <small>{{post.author}}</small>
+                </h3>
+                <p>{{post.content}}</p>
+            </li>
+        </ul>
+    </div>
+</div>
