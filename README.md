@@ -1,5 +1,5 @@
-Combining Silex and AngularJS
-============================
+MINIMAL BLOG : Combining Silex and AngularJS to create a single page blog app
+=============================================================================
 
 author: Mparaiso mparaiso@online.fr
 
@@ -8,6 +8,10 @@ Adaptation of the following (great) tutorial :
 http://net.tutsplus.com/tutorials/javascript-ajax/combining-laravel-4-and-backbone/
 
 I used Silex instead of Laravel , AngularJS instead of Backbone ,Doctrine DBAL/PDO instead of Eloquent , and Twig instead of mustache.
+
+## LIVE DEMO
+
+https://silex-miniblog.herokuapp.com
 
 ## INSTALLATION
 
