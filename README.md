@@ -23,7 +23,7 @@ Requirements:
 
 Server variables:
 
-Define the following variables on the ***SYSTEM*** level :
+Define the following variables on the ***SYSTEM*** level (with set/setx on Windows or export in Linux) :
 
 + NETTUTS_LARAVEL_BACKBONE_DBNAME: database name
 + NETTUTS_LARAVEL_BACKBONE_USER: db username
