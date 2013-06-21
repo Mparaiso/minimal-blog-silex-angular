@@ -25,12 +25,12 @@ Server variables:
 
 Define the following variables on the ***SYSTEM*** level :
 
-NETTUTS_LARAVEL_BACKBONE_DBNAME: database name
-NETTUTS_LARAVEL_BACKBONE_USER: db username
-NETTUTS_LARAVEL_BACKBONE_PASSWORD: db password
-NETTUTS_LARAVEL_BACKBONE_DRIVER: pdo driver ( ex  : pdo_mysql, pdo_sqlite, ...)
-NETTUTS_LARAVEL_BACKBONE_PORT: optional
-NETTUTS_LARAVEL_BACKBONE_ENV: development or production
++ NETTUTS_LARAVEL_BACKBONE_DBNAME: database name
++ NETTUTS_LARAVEL_BACKBONE_USER: db username
++ NETTUTS_LARAVEL_BACKBONE_PASSWORD: db password
++ NETTUTS_LARAVEL_BACKBONE_DRIVER: pdo driver ( ex  : pdo_mysql, pdo_sqlite, ...)
++ NETTUTS_LARAVEL_BACKBONE_PORT: optional
++ NETTUTS_LARAVEL_BACKBONE_ENV: development or production
 
 Web root:
 
