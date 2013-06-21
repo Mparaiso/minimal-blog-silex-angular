@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(E_STRICT);
+///error_reporting(E_STRICT);
 
 $filename = __DIR__ . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
 if (php_sapi_name() === 'cli-server' && is_file($filename)) {
