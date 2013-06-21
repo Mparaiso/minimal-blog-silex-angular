@@ -17,7 +17,7 @@
         <ul class="unstyled" data-ng-controller="PostListCtrl">
             <li data-ng-show="postService.posts.length<=0">No Post found , please create one</li>
             <li data-ng-repeat="post in postService.posts">
-                <h4><a href="/#/{{ post.id }}">{{ post.title }}
+                <h4><a href="#/{{ post.id }}">{{ post.title }}
                         <small>{{ post.author_name }}</small>
                     </a>
                 </h4>
@@ -39,7 +39,7 @@
             <p>{{ post.content }}</p>
             <div class="clear"></div>
             <p>
-                <a href="/#/">All Posts</a>
+                <a href="#/">All Posts</a>
             </p>
 
             <div>

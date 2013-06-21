@@ -124,10 +124,6 @@ class Config implements \Silex\ServiceProviderInterface
             return $app["twig"]->render("index.html.twig", array("content" => $content));
         })->bind("home");
 
-        $app->get("/blop/blip", function () {
-                return "blop works";
-            }
-        );
 
         // mounting controllers
         $app->mount('/api/' . $app['apiv'], $app['rest.controller.post']);
