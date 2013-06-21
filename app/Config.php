@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * EN : App Configuration
+ * FR : Configuration de l'application
+ */
+
 use Command\GenerateDatabaseCommand;
 use Mparaiso\Provider\ConsoleServiceProvider;
 use Mparaiso\SimpleRest\Controller\Controller;
@@ -10,11 +15,8 @@ use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\SerializerServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+use Symfony\Component\EventDispatcher\GenericEvent;
 
-/**
- * EN : App Configuration
- * FR : Configuration de l'application
- */
 class Config implements \Silex\ServiceProviderInterface
 {
     /**
@@ -74,7 +76,9 @@ class Config implements \Silex\ServiceProviderInterface
                 "resource" => "post",
                 "service"  => $app["service.post"],
                 "model"    => $app["model.post"],
-                "allow"    => array("read", "index", "create")
+                "allow"    => array("read", "index", "create"),
+                "criteria" => array("created_at"),
+                "debug"    => $app["debug"]
             ));
         });
 
@@ -95,10 +99,18 @@ class Config implements \Silex\ServiceProviderInterface
                 "resource" => "comment",
                 "service"  => $app["service.comment"],
                 "model"    => $app["model.comment"],
-                "allow"    => array("read", "index", "create")
+                "allow"    => array("read", "index", "create"),
+                "debug"    => $app["debug"]
             ));
         });
+        $app["resource_before_create"] = $app->protect(function (GenericEvent $event) {
+            $model = $event->getSubject();
+            $model->setId(NULL);
+            $model->setCreatedAt(date("Y-m-d H:i:s"));
+        });
+
     }
+
 
     /**
      * {@inheritdoc}
@@ -112,9 +124,11 @@ class Config implements \Silex\ServiceProviderInterface
         })->bind("home");
 
         // mounting controllers
-        $app->mount("/api/$app[apiv]", $app["rest.controller.post"]);
-        $app->mount("/api/$app[apiv]", $app["rest.controller.comment"]);
+        $app->mount('/api/' . $app['apiv'], $app['rest.controller.post']);
+        $app->mount('/api/' . $app['apiv'], $app['rest.controller.comment']);
 
+        $app->on("post_before_create", $app["resource_before_create"]);
+        $app->on("comment_before_create", $app["resource_before_create"]);
 
     }
 }

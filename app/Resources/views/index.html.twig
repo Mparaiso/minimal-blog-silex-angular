@@ -1,4 +1,106 @@
-{%  extends 'layout.html.twig' %}
+{% extends 'layout.html.twig' %}
 {% block content %}
-<span data-ng-app="App" data-ng-include="'/static/app/templates/main.html'"></span>
+    {% verbatim %}
+    <!-- MAIN TEMPLATE  -->
+    <div class="row view" data-ng-controller="MainCtrl">
+        <div data-ng-view data-ng-animate="'anim'"><h4>Loading Application ...</h4></div>
+    </div>
+    <!-- INDEX TEMPLATE -->
+    <script type="text/ng-template" id="index.html">
+        <div>
+            <h3>Blog</h3>
+            <span data-ng-include="'post-list.html'"></span>
+        </div>
+    </script>
+    <!-- POST LIST TEMPLATE -->
+    <script type="text/ng-template" id="post-list.html">
+        <ul class="unstyled" data-ng-controller="PostListCtrl">
+            <li data-ng-show="postService.posts.length<=0">No Post found , please create one</li>
+            <li data-ng-repeat="post in postService.posts">
+                <h4><a href="/#/{{ post.id }}">{{ post.title }}
+                        <small>{{ post.author_name }}</small>
+                    </a>
+                </h4>
+                <h5>
+                    <small class="muted">{{ post.created_at }}</small>
+                </h5>
+            </li>
+        </ul>
+    </script>
+    <!-- POST READ TEMPLATE -->
+    <script type="text/ng-template" id="post-read.html">
+        <div  class="span6">
+            <h3>{{ post.title }}
+                <small>{{ post.author_name }}</small>
+            </h3>
+            <h5>
+                <small class="muted">{{ post.created_at }}</small>
+            </h5>
+            <p>{{ post.content }}</p>
+            <div class="clear"></div>
+            <p>
+                <a href="/#/">All Posts</a>
+            </p>
+
+            <div>
+                <div data-ng-include="'comment-create.html'"></div>
+                <span data-ng-include="'comment-list.html'"></span>
+            </div>
+        </div>
+    </script>
+    <!-- COMMENT LIST TEMPLATE -->
+    <script type="text/ng-template" id="comment-list.html">
+        <div>
+            <h5>Comments</h5>
+            <ul class="unstyled">
+                <li data-ng-show="commentService.comments.length<=0">
+                    <h4>No comment found</h4>
+                </li>
+                <li data-ng-repeat="comment in commentService.comments" data-ng-animate="'fade'">
+                    <h6>{{ comment.author_name }}
+                        <small>{{ comment.created_at }}</small>
+                    </h6>
+                    <div>
+                        <small>{{ comment.content }}</small>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </script>
+    <!-- COMMMENT CREATE TEMPLATE -->
+    <script type="text/ng-template" id="comment-create.html">
+        <div>
+            <form name="comment_form">
+                <h5>Submit a comment</h5>
+                <label>Author</label>
+                <input required max="200" type="text" data-ng-model="comment.author_name"/>
+                <label>Content</label>
+                <textarea required rows="2" max="256"
+                          data-ng-model="comment.content"></textarea>
+                <label></label>
+                <input data-ng-disabled="comment_form.$invalid" class="btn btn-success"
+                       type="submit" value="Submit" data-ng-click="submit(comment,post.id,comment_form)">
+                <input class="btn" type="reset" value="Reset"/>
+            </form>
+        </div>
+    </script>
+    <!-- POST CREATE TEMPLATE -->
+    <script type="text/ng-template" id="post-create.html">
+        <div>
+            <h3>Add a new post</h3>
+
+            <form name="postform">
+                <label>Author</label>
+                <input data-ng-model="post.author_name" maxlength="256" required type="text" name="author"/>
+                <label>Title</label>
+                <input type="text" required data-ng-model="post.title" maxlength="256"/>
+                <label>Content</label>
+                <textarea data-ng-model="post.content" required rows="5" maxlength="256" cols="10"></textarea>
+                <label></label>
+                <input type="submit" data-ng-disabled="postform.$valid==false" data-ng-click="submit(post)" class="btn"
+                       value="Submit"> <input class="btn" type="reset" value="Reset"/>
+            </form>
+        </div>
+    </script>
+    {% endverbatim %}
 {% endblock %}

@@ -7,14 +7,14 @@ use Mparaiso\SimpleRest\Model\AbstractModel;
 class Comment extends AbstractModel
 {
     protected $id;
-    protected $title;
     protected $content;
     protected $author_name;
     protected $post_id;
+    protected $created_at;
 
     function __toString()
     {
-        return $this->title;
+        return $this->content;
     }
 
     public function getId()
@@ -25,16 +25,6 @@ class Comment extends AbstractModel
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    public function setTitle($title)
-    {
-        $this->title = $title;
     }
 
     public function getContent()
@@ -65,6 +55,16 @@ class Comment extends AbstractModel
     public function setPostId($post_id)
     {
         $this->post_id = $post_id;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt($created_at)
+    {
+        $this->created_at = $created_at;
     }
 }
 

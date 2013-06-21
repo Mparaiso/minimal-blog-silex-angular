@@ -1,0 +1,60 @@
+body {
+    font-size: 100%;
+}
+
+.row {
+    position: relative;
+}
+
+.anim-enter, .anim-leave {
+    position: absolute;
+    transition: all ease-in-out 0.6s;
+    -webkit-transition: all ease-in-out 0.6s;
+    -moz-transition: all ease-in-out 0.6s;
+}
+
+.anim-enter {
+    opacity: 0;
+    left: -200px;
+}
+
+.anim-enter.anim-enter-active {
+    opacity: 1;
+    left: 0;
+}
+
+.anim-leave {
+    opacity: 1;
+    left: 0;
+}
+
+.anim-leave.anim-leave-active {
+    opacity: 0;
+    left: 200px;
+}
+
+.fade-enter, .fade-leave {
+    transition: all ease-in-out 0.6s;
+    -webkit-transition: all ease-in-out 0.6s;
+    -moz-transition: all ease-in-out 0.6s;
+}
+
+/**
+ * FADE
+ */
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+    opacity: 0;
+}
+
+.fade-leave {
+    opacity: 1;
+}

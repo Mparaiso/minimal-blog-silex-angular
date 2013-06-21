@@ -7,7 +7,7 @@ Adaptation of the following (great) tutorial :
 
 http://net.tutsplus.com/tutorials/javascript-ajax/combining-laravel-4-and-backbone/
 
-I used Silex instead of Laravel , AngularJS instead of Backbone , and Twig instead of mustache.
+I used Silex instead of Laravel , AngularJS instead of Backbone ,Doctrine DBAL/PDO instead of Eloquent , and Twig instead of mustache.
 
 ## INSTALLATION
 
@@ -39,6 +39,16 @@ The web root is the /web/ folder.
 Chmod:
 
 /temp/ must be writable
+
+Command Line:
+
+with a cli ,in the root folder ,generate the database: <code>php console.php p:d:g</code>
+
+Fire the built-in server ( PHP >= 5.4 ):
+
+in the web folder : php -S 127.0.0.1:3000 index.php
+
+And you are <del>outta here</del> good to go !
 
 License : LGPL
 

@@ -37,16 +37,20 @@ EOT
         $post = new Table("post");
         $post->addColumn("id", "integer",
             array("Autoincrement" => TRUE, array("length" => 10)));
-        $post->addColumn("content", "text");
+        $post->addColumn("title", "string", array("length" => 256));
         $post->addColumn("author_name", "string", array("length" => 256));
+        $post->addColumn("content", "string", array("length" => 256));
+        $post->addColumn("created_at","datetime");
+        $post->addIndex(array("title"));
         $post->setPrimaryKey(array("id"));
 
         $comment = new Table("comment");
         $comment->addColumn("id", "integer",
             array("Autoincrement" => TRUE, array("length" => 10)));
-        $comment->addColumn("content", "text");
+        $comment->addColumn("content", "string", array("length" => 256));
         $comment->addColumn("author_name", "string", array("length" => 256));
         $comment->addColumn("post_id", "integer", array("length" => 10));
+        $comment->addColumn("created_at","datetime");
         $comment->setPrimaryKey(array("id"));
         $comment->addForeignKeyConstraint($post, array("post_id"), array("id"));
 
