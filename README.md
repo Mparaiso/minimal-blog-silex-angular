@@ -42,7 +42,7 @@ Chmod:
 
 COMPOSER :
 
-install packages : composer install in the root folder
+install packages : <code>composer install</code> in the root folder
 
 Command Line:
 
@@ -50,7 +50,7 @@ with a cli ,in the root folder ,generate the database: <code>php console.php p:d
 
 Fire the built-in server ( PHP >= 5.4 ):
 
-in the web folder : php -S 127.0.0.1:3000 index.php
+in the web folder : <code>php -S 127.0.0.1:3000 index.php</code>
 
 And you are <del>outta here</del> good to go !
 
