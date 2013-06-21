@@ -76,9 +76,16 @@ app.factory("PostService", function (Post) {
         findAll: function (params, callback) {
             return Post.get(params, callback);
         },
-        find: function (id, params, callback) {
-            params = angular.extend({}, params, {id: id});
-            return Post.get(params, callback);
+//        find: function (id, params, callback) {
+//            params = angular.extend({}, params, {id: id});
+//            return Post.get(params, callback);
+//        },
+        find: function (id, parms, callback) {
+            for (var i = 0; i < this.posts.length; i++) {
+                if (id == this.posts[i].id) {
+                    callback({post: this.posts[i]});
+                }
+            }
         },
         create: function (post, callback) {
             return Post.save(post, callback);
