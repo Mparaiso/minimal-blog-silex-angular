@@ -1,7 +1,7 @@
 Combining Silex and AngularJS
 ============================
 
-author: Mparaiso mparaiso@oneline.fr 
+author: Mparaiso mparaiso@online.fr
 
 Adaptation of the following (great) tutorial :
 
