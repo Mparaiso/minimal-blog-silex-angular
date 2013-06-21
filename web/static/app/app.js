@@ -103,9 +103,9 @@ app.factory("Comment", function ($resource) {
  * ROUTES : application routes
  */
 app.config(function ($routeProvider) {
-    $routeProvider.when("/app", {templateUrl: "index.html", controller: "IndexCtrl"})
-    $routeProvider.when("/app/create", {templateUrl: "post-create.html", controller: "PostCreateCtrl"})
-    $routeProvider.when("/app/:postId", {templateUrl: "post-read.html", controller: "PostReadCtrl"})
-    $routeProvider.otherwise({redirectTo: "/app"});
+    $routeProvider.when("/blog", {templateUrl: "index.html", controller: "IndexCtrl"})
+    $routeProvider.when("/blog/create", {templateUrl: "post-create.html", controller: "PostCreateCtrl"})
+    $routeProvider.when("/blog/:postId", {templateUrl: "post-read.html", controller: "PostReadCtrl"})
+    $routeProvider.otherwise({redirectTo: "/blog"});
 });
 
