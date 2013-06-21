@@ -1,5 +1,7 @@
-MINIMAL BLOG : Combining Silex and AngularJS to create a single page blog app
-=============================================================================
+MINIMAL BLOG :
+==============
+
+###Combining Silex and AngularJS to create a single page blog app
 
 author: Mparaiso mparaiso@online.fr
 
