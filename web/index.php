@@ -2,10 +2,10 @@
 
 error_reporting(E_STRICT);
 
-$filename = __DIR__ . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
-if (php_sapi_name() === 'cli-server' && is_file($filename)) {
-    return FALSE;
-}
+//$filename = __DIR__ . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
+//if (php_sapi_name() === 'cli-server' && is_file($filename)) {
+//    return FALSE;
+//}
 
 $autoload = require __DIR__ . "/../vendor/autoload.php";
 
