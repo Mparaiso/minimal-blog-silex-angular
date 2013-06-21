@@ -40,6 +40,10 @@ Chmod:
 
 /temp/ must be writable
 
+COMPOSER :
+
+install packages : composer install in the root folder
+
 Command Line:
 
 with a cli ,in the root folder ,generate the database: <code>php console.php p:d:g</code>
