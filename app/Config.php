@@ -41,6 +41,7 @@ class Config implements \Silex\ServiceProviderInterface
 
         $app->register(new DoctrineServiceProvider, array(
             "db.options" => array(
+                "host"     => getenv('NETTUTS_LARAVEL_BACKBONE_HOST'),
                 "dbname"   => getenv('NETTUTS_LARAVEL_BACKBONE_DBNAME'),
                 "user"     => getenv('NETTUTS_LARAVEL_BACKBONE_USER'),
                 "password" => getenv('NETTUTS_LARAVEL_BACKBONE_PASSWORD'),
