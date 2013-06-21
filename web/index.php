@@ -1,13 +1,13 @@
 <?php
 
-$filename = __DIR__.preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
+$filename = __DIR__ . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
 if (php_sapi_name() === 'cli-server' && is_file($filename)) {
-    return false;
+    return FALSE;
 }
 
-$autoload = require __DIR__."/../vendor/autoload.php";
-
-$app = new App(array("debug"=>true));
+$autoload = require __DIR__ . "/../vendor/autoload.php";
+$debut = getenv("NETTUTS_LARAVEL_BACKBONE_ENV") == "development" ? TRUE : FALSE;
+$app = new App(array("debug" => $debug));
 
 
 $app->run();

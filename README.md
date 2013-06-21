@@ -52,5 +52,11 @@ And you are <del>outta here</del> good to go !
 
 License : LGPL
 
+## TODO
+
++ write doc
++ write php tests
++ write js tests
+
 
 
